@@ -1,0 +1,30 @@
+[
+  {
+    "nome": "Teatro Amazonas",
+    "categoria": "Histórico e Cultural",
+    "localizacao": "Largo de São Sebastião - Centro, Manaus - AM",
+    "descricao": "Inaugurado em 1896 durante o Ciclo da Borracha, é o principal símbolo cultural do Amazonas. Possui arquitetura renascentista com uma cúpula composta por 36 mil peças de cerâmica nas cores da bandeira do Brasil.",
+    "horario_visitacao": "Terça a Sábado, das 9h às 17h."
+  },
+  {
+    "nome": "Encontro das Águas",
+    "categoria": "Natural",
+    "localizacao": "Rio Negro e Rio Solimões, Manaus - AM",
+    "descricao": "Fenômeno natural onde as águas escuras do Rio Negro e as águas barrentas do Rio Solimões correm lado a lado por mais de 6 km sem se misturar, devido às diferenças de temperatura, densidade e velocidade da correnteza.",
+    "horario_visitacao": "Passeios de barco saindo diariamente do Porto de Manaus."
+  },
+  {
+    "nome": "MUSA - Museu da Amazônia",
+    "categoria": "Ecoturismo",
+    "localizacao": "Av. Margarita, s/n - Cidade de Deus, Manaus - AM",
+    "descricao": "Um museu vivo situado na Reserva Florestal Adolpho Ducke. Oferece trilhas guiadas, torre de observação de 42 metros de altura sobre a copa das árvores, vitórias-régias e aquários.",
+    "horario_visitacao": "Diariamente (exceto quartas-feiras), das 8h30 às 17h."
+  },
+  {
+    "nome": "Praia da Ponta Negra",
+    "categoria": "Lazer e Natureza",
+    "localizacao": "Av. Coronel Teixeira - Ponta Negra, Manaus - AM",
+    "descricao": "Um dos principais cartões-postais da cidade, com calçadão para caminhadas, anfiteatro, quadras esportivas e vista para o Rio Negro. É um espaço público totalmente gratuito.",
+    "horario_visitacao": "Acesso livre todos os dias. Banho de rio liberado das 8h às 17h."
+  }
+]
