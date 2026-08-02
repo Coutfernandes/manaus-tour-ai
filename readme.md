@@ -1,4 +1,4 @@
-# 🎭 Manaus Tour — Agente Corporativo IA
+# Manaus Tour — Agente Corporativo IA
 
 > Projeto desenvolvido para o Challenge ONE (Alura)
 
