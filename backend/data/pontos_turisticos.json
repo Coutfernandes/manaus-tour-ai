@@ -1,0 +1,50 @@
+[
+  {
+    "nome": "Teatro Amazonas",
+    "categoria": "Histórico e Cultural",
+    "descricao": "Inaugurado em 1896 durante o Ciclo da Borracha, o Teatro Amazonas é o principal símbolo arquitetônico e cultural de Manaus.",
+    "horario_visitacao": "De terça a sábado, das 9h às 17h. Domingos para eventos programados.",
+    "preco": "R$ 20 (inteira) / R$ 10 (meia). Gratuito para amazonenses com comprovante de residência.",
+    "localizacao": "Praça São Sebastião, Centro, Manaus - AM"
+  },
+  {
+    "nome": "Praia da Ponta Negra",
+    "categoria": "Lazer e Natureza",
+    "descricao": "Complexo turístico às margens do Rio Negro, famoso pelo calçadão de pedras portuguesas, anfiteatro e pôr do sol.",
+    "horario_visitacao": "Aberto 24 horas. Banho liberado das 8h às 17h.",
+    "preco": "Acesso gratuito.",
+    "localizacao": "Bairro Ponta Negra, Zona Oeste, Manaus - AM"
+  },
+  {
+    "nome": "Encontro das Águas",
+    "categoria": "Natureza e Passeio de Barco",
+    "descricao": "Fenômeno natural onde as águas escuras do Rio Negro e as águas barrentas do Rio Solimões correm lado a lado sem se misturar por mais de 6 km.",
+    "horario_visitacao": "Passeios de barco ocorrem diariamente, geralmente entre 8h e 16h com saída do Porto de Manaus.",
+    "preco": "Passeios variam entre R$ 150 e R$ 350 por pessoa (dependendo se inclui almoço ou visita à aldeia indígena).",
+    "localizacao": "Rio Negro / Rio Solimões"
+  },
+  {
+    "nome": "MUSA - Museu da Amazônia",
+    "categoria": "Ecoturismo e Ciência",
+    "descricao": "Museu vivo localizado na Reserva Florestal Adolpho Ducke. Conta com uma torre de observação de 42 metros de altura sobre a copa das árvores, trilhas guiadas, aquários e orquidário.",
+    "horario_visitacao": "De quinta a terça-feira (fechado às quartas), das 8h30 às 17h (entrada até 16h).",
+    "preco": "R$ 40 (trilha sem guia) / R$ 60 (com guia/torre). Meia-entrada para estudantes e idosos.",
+    "localizacao": "Av. Margarita, Cidade Nova, Manaus - AM"
+  },
+  {
+    "nome": "Mercado Municipal Adolpho Lisboa",
+    "categoria": "Gastronomia e Artesanato",
+    "descricao": "Conhecido como Mercadão, possui arquitetura inspirada nos antigos mercados de Paris (Les Halles). É o melhor lugar para comprar artesanato indígena, ervas medicinais, peixes locais (como pirarucu e tucunaré) e provar a gastronomia típica.",
+    "horario_visitacao": "Segunda a sábado das 6h às 17h; domingos das 6h às 12h.",
+    "preco": "Entrada gratuita.",
+    "localizacao": "Rua dos Barés, Centro, Manaus - AM"
+  },
+  {
+    "nome": "Culinária e Gastronomia Típica",
+    "categoria": "Gastronomia",
+    "descricao": "A culinária manauara é rica em peixes de água doce (Tucunaré, Tambaqui, Pirarucu), tacacá (caldo de tucupi com goma, camarão e jambu), x-caboquinho (pão francês com tucumã, queijo coalho e banana frita) e sucos de frutas locais como açaí, cupuaçu, graviola e taperebá.",
+    "horario_visitacao": "Bancadas de tacacá costumam abrir a partir das 16h.",
+    "preco": "Pratos típicos variam de R$ 15 (X-Caboquinho/Tacacá) a R$ 120 (Banda de Tambaqui assada).",
+    "localizacao": "Diversos restaurantes e tacacarias pela cidade"
+  }
+]
