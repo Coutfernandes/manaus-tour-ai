@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Send, FileText, Bot, Compass, CheckCircle2, BookOpen } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Send, FileText, Bot, CheckCircle2, BookOpen, Sparkles } from 'lucide-react';
 
 export default function App() {
   const [messages, setMessages] = useState([
@@ -11,6 +11,22 @@ export default function App() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [sources, setSources] = useState([]);
+  const [sugestoes, setSugestoes] = useState([]);
+
+  // Função para buscar sugestões dinâmicas da API
+  const carregarSugestoes = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/api/sugestoes');
+      const data = await response.json();
+      if (data.sugestoes) setSugestoes(data.sugestoes);
+    } catch (error) {
+      console.error('Erro ao buscar sugestões:', error);
+    }
+  };
+
+  useEffect(() => {
+    carregarSugestoes();
+  }, []);
 
   const handleSend = async (perguntaTexto) => {
     const textToSend = perguntaTexto || input;
@@ -31,6 +47,9 @@ export default function App() {
 
       setMessages([...newMessages, { sender: 'bot', text: data.resposta }]);
       if (data.fontes) setSources(data.fontes);
+      
+      // Atualiza as sugestões para novas opções após enviar uma pergunta
+      carregarSugestoes();
     } catch (error) {
       setMessages([
         ...newMessages,
@@ -112,17 +131,22 @@ export default function App() {
 
         {/* SUGESTÕES RÁPIDAS & INPUT */}
         <div className="p-6 bg-white/40 border-t border-stone-300 space-y-3">
-          <div className="flex gap-2 overflow-x-auto pb-1 text-xs">
-            <button onClick={() => handleSend("Qual é o horário de visitação do Teatro Amazonas?")} className="px-3 py-1.5 rounded-full bg-white border border-stone-300 text-[#0E2517] hover:border-[#0E2517] transition-colors shrink-0">
-              Teatro Amazonas
-            </button>
-            <button onClick={() => handleSend("Quanto custa para ir na Ponta Negra?")} className="px-3 py-1.5 rounded-full bg-white border border-stone-300 text-[#0E2517] hover:border-[#0E2517] transition-colors shrink-0">
-              Ponta Negra
-            </button>
-            <button onClick={() => handleSend("Como funciona o Encontro das Águas?")} className="px-3 py-1.5 rounded-full bg-white border border-stone-300 text-[#0E2517] hover:border-[#0E2517] transition-colors shrink-0">
-              Encontro das Águas
-            </button>
-          </div>
+          {sugestoes.length > 0 && (
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
+              <span className="flex items-center gap-1 text-emerald-800 font-semibold shrink-0 text-[11px]">
+                <Sparkles className="w-3.5 h-3.5" /> Sugestões:
+              </span>
+              {sugestoes.map((sugestao, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleSend(sugestao)}
+                  className="px-3 py-1.5 rounded-full bg-white border border-stone-300 text-[#0E2517] hover:border-[#0E2517] transition-colors shrink-0"
+                >
+                  {sugestao}
+                </button>
+              ))}
+            </div>
+          )}
 
           <div className="flex items-center gap-2 bg-white rounded-xl border border-stone-300 p-2 shadow-sm focus-within:border-[#0E2517] transition-colors">
             <input
