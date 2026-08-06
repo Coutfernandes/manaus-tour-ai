@@ -13,10 +13,14 @@ export default function App() {
   const [sources, setSources] = useState([]);
   const [sugestoes, setSugestoes] = useState([]);
 
-  // Função para buscar sugestões dinâmicas da API
-  const carregarSugestoes = async () => {
+  // 1. Função ajustada para aceitar a última pergunta como parâmetro
+  const carregarSugestoes = async (ultimaPergunta = '') => {
     try {
-      const response = await fetch('http://localhost:8000/api/sugestoes');
+      const url = ultimaPergunta
+        ? `http://localhost:8000/api/sugestoes?ultima_pergunta=${encodeURIComponent(ultimaPergunta)}`
+        : 'http://localhost:8000/api/sugestoes';
+
+      const response = await fetch(url);
       const data = await response.json();
       if (data.sugestoes) setSugestoes(data.sugestoes);
     } catch (error) {
@@ -48,8 +52,8 @@ export default function App() {
       setMessages([...newMessages, { sender: 'bot', text: data.resposta }]);
       if (data.fontes) setSources(data.fontes);
       
-      // Atualiza as sugestões para novas opções após enviar uma pergunta
-      carregarSugestoes();
+      // 2. Atualiza as sugestões passando a pergunta recém enviada
+      carregarSugestoes(textToSend);
     } catch (error) {
       setMessages([
         ...newMessages,
