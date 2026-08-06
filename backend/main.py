@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from src.agent import perguntar_ao_agente
+from src.agent import perguntar_ao_agente, gerar_sugestoes_contextuais
 
 app = FastAPI(title="Manaus Tour AI API")
 
@@ -41,11 +42,12 @@ def chat(payload: PerguntaRequest):
         ]
     }
 
+
 @app.get("/api/sugestoes")
-async def obter_sugestoes():
-    # Retorna 3 sugestões aleatórias a cada chamada
-    sugestoes_aleatorias = random.sample(SUGESTOES_BASE, k=min(3, len(SUGESTOES_BASE)))
-    return {"sugestoes": sugestoes_aleatorias}
+async def obter_sugestoes(ultima_pergunta: str = None):
+    # Chama o Gemini para gerar 3 sugestões inteligentes baseadas na última pergunta
+    sugestoes = gerar_sugestoes_contextuais(ultima_pergunta)
+    return {"sugestoes": sugestoes}
 
 if __name__ == "__main__":
     import uvicorn
