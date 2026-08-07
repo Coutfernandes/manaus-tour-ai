@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Send, FileText, Bot, CheckCircle2, BookOpen, Sparkles } from 'lucide-react';
 
+const API_BASE_URL = 'http://localhost:8000';
+
 export default function App() {
   const [messages, setMessages] = useState([
     {
@@ -13,12 +15,12 @@ export default function App() {
   const [sources, setSources] = useState([]);
   const [sugestoes, setSugestoes] = useState([]);
 
-  // 1. Função ajustada para aceitar a última pergunta como parâmetro
+  // Função para carregar sugestões do backend FastAPI
   const carregarSugestoes = async (ultimaPergunta = '') => {
     try {
       const url = ultimaPergunta
-        ? `http://localhost:8000/api/sugestoes?ultima_pergunta=${encodeURIComponent(ultimaPergunta)}`
-        : 'http://localhost:8000/api/sugestoes';
+        ? `${API_BASE_URL}/api/sugestoes?ultima_pergunta=${encodeURIComponent(ultimaPergunta)}`
+        : `${API_BASE_URL}/api/sugestoes`;
 
       const response = await fetch(url);
       const data = await response.json();
@@ -42,17 +44,19 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8000/api/chat', {
+      // Envio de mensagem no chat para o backend FastAPI
+      const chatResponse = await fetch(`${API_BASE_URL}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ pergunta: textToSend }),
       });
-      const data = await response.json();
+
+      const data = await chatResponse.json();
 
       setMessages([...newMessages, { sender: 'bot', text: data.resposta }]);
       if (data.fontes) setSources(data.fontes);
       
-      // 2. Atualiza as sugestões passando a pergunta recém enviada
+      // Atualiza as sugestões com base na pergunta recém-enviada
       carregarSugestoes(textToSend);
     } catch (error) {
       setMessages([
@@ -68,7 +72,7 @@ export default function App() {
     <div className="flex h-screen bg-[#FCFAF1] text-[#0E2517] overflow-hidden">
       
       {/* 1. SIDEBAR ESQUERDA - VERDE #0E2517 */}
-      <aside className="w-80 bg-[#0E2517] text-[#FCFAF1] p-6 flex flex-col justify-between hidden md:flex">
+      <aside className="w-80 bg-[#0E2517] text-[#FCFAF1] p-6 hidden md:flex flex-col justify-between">
         <div>
           <div className="flex items-center gap-3 mb-6">
             <div>

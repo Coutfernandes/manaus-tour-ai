@@ -4,6 +4,15 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from src.agent import perguntar_ao_agente
 from src.agent import perguntar_ao_agente, gerar_sugestoes_contextuais
+import os
+import json
+
+# Garante que o caminho para o JSON seja relativo ao diretório do arquivo Python
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+JSON_PATH = os.path.join(BASE_DIR,"data", "pontos_turisticos.json")
+
+with open(JSON_PATH, "r", encoding="utf-8") as f:
+    pontos_turisticos = json.load(f)
 
 app = FastAPI(title="Manaus Tour AI API")
 
