@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Send, FileText, Bot, CheckCircle2, BookOpen, Sparkles } from 'lucide-react';
 
-const API_BASE_URL = 'http://localhost:8000';
+// De:
+// const API_BASE_URL = 'http://localhost:8000';
+
+// Para:
+const API_BASE_URL = 'https://manaus-tour-ai-backend.vercel.app';
 
 export default function App() {
   const [messages, setMessages] = useState([
