@@ -103,7 +103,8 @@ export default function App() {
         </div>
 
         <div className="text-[11px] text-emerald-400/70 border-t border-white/10 pt-4">
-          Alura & Oracle Next Education Challenge
+          Alura & Oracle Next Education Challenge 2026 
+          Desenvolvedor <a href="https://www.linkedin.com/in/matheus-fernandes-coutinho-27512a328/" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:underline">Cout Fernandes</a>
         </div>
       </aside>
 
